@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.parallax {
+  /* The image used */
+  background-image: url(https://www.philonomist.com/sites/default/files/2021-11/iStock-1209499584%20copie.jpg);
+
+  /* Set a specific height */
+  min-height: 300px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header {
+    padding: 200px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 33px;
+    text-shadow: 4px 4px black;
+    color: #dbb9d2;
+    font-weight: bold;
+    height: 250px;
+}
+.wrapper-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
+.aqiimage{
+    position: relative;
+    height: 530px;
+    left: 450px;
+}
+.headerparagraph{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 23px;
+    left: 450px;
+    width: 1000px;
+    height: 40px;
+    font-weight: bold;
+    text-align: justify;
+}
+.whatisaqi{
+    position: relative;
+    font-size: 18px;
+    left: 450px;
+    width: 1000px;
+    height: 180px;
+    text-align: justify;
+}
+.divintro{
+    position: relative;
+    font-size: 18px;
+    left: 450px;
+    width: 1000px;
+    height: 250px;
+    text-align: justify;
+}
+.divintrobar{
+    position: relative;
+    font-size: 18px;
+    left: 450px;
+    width: 1000px;
+    height: 90px;
+    text-align: justify;
+}
+
+.divfinal{
+    position: relative;
+    font-size: 18px;
+    left: 450px;
+    width: 1000px;
+    height: 100px;
+    text-align: justify;
+}
+.divworldchart{
+    position: relative;
+    left: 515px;
+}
+.divbarchart{
+    position: relative;
+    left: 460px;
+}
+.divlinechartworst{
+    position: relative;
+    left: 510px;
+}
+.divlinechartbest{
+    position: relative;
+    left: 500px;
+}
+.footer {
+    position: relative;
+    width: 1000px;
+    color: #dbb9d2;
+    text-shadow: 2px 2px black;
+    left: 460px;
+    text-align: center;
+}
+    </style>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <style>
+
+    </style>
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/KorianderK/FIT3179/main/Vega-Lite/Assignment2/css/styles.css" media="all">
+
+</head>
+<div class="wrapper">
+
+<div class="parallax"><div class="header">
+    <h1>World Total AQI Values By Country</h1>
+    <p>August 2022</p>
+  </div></div>
+
+<body>
+    <div class="wrapper-grid">
+    <body style="background-color:#dbb9d2;">
+        <div class="headerparagraph">
+            <p>Introduction</p>
+            </div>
+    <div class="page">
+        <div class="divintro">
+        <p> <b>The air</b> we breathe directly affects our wellbeing. No matter where we are or live, 
+            pollution is always present, be it of man-made or natural causes.
+            The amount of pollution we are exposed to varies depending on our daily activities, 
+            the time of day or season, and even the weather. Pollutants, especially fine particulate 
+            matter of 10 and especially 2.5 microns, are detrimental to respiratory health.
+            <b>Particulate matter (PM)</b>, or airborne particles, includes dust, dirt, soot, and smoke. Some 
+            particles are directly emitted into the air by cars, trucks, buses factories, construction 
+            sites and wood burning to name a few examples. Other particles are formed in the air when 
+            gases from burning fuels react with sunlight and water vapor. Such gases, from incomplete 
+            combustion in motor vehicles, at power plants and in other industrial processes, contribute 
+            indirectly to particulate pollution. This pollution can cause chronic bronchitis, asthma 
+            attacks, decreased lung function, coughing, painful breathing, cardiac problems and heart 
+            attacks, as well as a variety of serious environmental impacts such as acidification of 
+            lakes and streams and nutrient depletion in soils and water bodies.
+            To combat this, we refer to the <b>Air Quality Index (AQI)</b> metric to determine the cleanliness 
+            of the air around us and take preventive measures.
+            </p>
+            </div>
+        </div>
+        <div class="headerparagraph">
+            <p>What is an AQI value?</p>
+            </div>
+            <div class="whatisaqi">
+                <p> Think of <b>AQI</b> as a yardstick that runs from <b>0 to 500</b>. The <b>higher the AQI value</b>, 
+                    the <b>greater the level of air pollution and the greater the health concern</b>. For example, a 
+                    daily AQI value of 50 or below represents good air quality, while a daily AQI value over 300 represents 
+                    hazardous air quality. For each pollutant an AQI value of 100 generally corresponds to an ambient air 
+                    concentration that equals the level of the short-term national ambient air quality standard for 
+                    protection of public health. AQI values at or below 100 are generally thought of as satisfactory. 
+                    When AQI values are <b>above 100, air quality is unhealthy</b>: at first for certain sensitive groups of 
+                    people, then for everyone as AQI values get higher. The chart below gives a general idea on how AQI works.
+                    </p>
+                </div> 
+                  
+            <div class="aqiimage">
+                <img src="https://www.deq.idaho.gov/wp-content/uploads/AQI-Page-Basics-for-Ozone-and-Particle-Pollution_5_7_20-1.png" alt="AQI chart" style="width:1000px;height:500px;"> 
+            </div>
+                
+
+        <div class="headerparagraph">
+            <p>Total AQI, a global view</p>
+            </div>
+            <div class="divintrobar">
+                <p> The choropleth below visualizes the AQI severity of certain countries, by their total AQI values. Lighter colours indicates
+                    less polluted air with darker colours signifying severe pollution. This visualization allows 
+                    hovering for more information.
+                    </p>
+                </div>
+            <div class="divworldchart"><div id="world_map" class="vis-container"></div></div>
+            <div class="headerparagraph">
+                <p>What countries have the best/ worst total AQI?</p>
+                </div>
+            <div class="divintrobar">
+                <p> As shown in the graph below, there is a stark difference between the Total AQI levels of the top 10 
+                    <b>lowest</b>(best) vs <b>highest</b>(worst) countries. Pollution includes but is not limited to vehicle emissions, war-induced pollution, 
+                    excessive use of generators for electical needs, emissions from oil/ gas refineries and  GHG (Greenhouse Gases).
+                    </p>
+                </div>
+
+            <div class="divbarchart"><div id="bar_chart" class="vis-container"></div></div>
+
+            <div class="headerparagraph">
+                <p>What about the daily AQI values?</p>
+                </div>
+            <div class="divintrobar">
+                <p> The graph below shows the top 10 <b>worst</b> AQI valued countries, by their daily AQI values. This visualization allows 
+                    for country selection to view the time series of an individual country and hovering for more information.
+                    </p>
+                </div>
+            <div class="divlinechartworst"><div id="line_chart" class="vis-container"></div></div>
+            <div class="divintrobar">
+                <p> The graph below shows the top 10 <b>best</b> AQI valued countries, by their daily AQI values. This visualization allows 
+                    for country selection to view the time series of an individual country and hovering for more information.
+                    </p>
+                </div>
+            <div class="divlinechartbest"><div id="line_chart2" class="vis-container"></div></div>
+            <div class="headerparagraph">
+                <p>Air quality, should we care?</p>
+                </div>
+            <div class="divfinal">
+                <p> Good outdoor air quality is fundamental to our well-being. On average, a person inhales about 14,000 litres of air every day, 
+                    and pollutants in this air can adversely affect people's health. Therefore, it is paramount that this concern is taken 
+                    seriously for the benefit of all.
+                    </p>
+                </div>
+                <div class="parallax">
+                <div class="footer">
+                    <p> Viz created by Amos Leong Zheng Khang for FIT3179, 2022</p>
+                    <p> Data sourced from Kaggle at https://www.kaggle.com/datasets/azminetoushikwasi/aqi-air-quality-index-scheduled-daily-update</p>
+                    <p> Version 2.4 as of 17/10/2022</p>
+                </div>
+            </div>
+
+    </div>
+    </div> <!-- end page -->
+
+    <script type="text/javascript">
+        var spec1 = "https://raw.githubusercontent.com/KorianderK/FIT3179/main/Vega-Lite/Assignment2/js/AQIChoroplethASS2.json";
+        var spec2 = "https://raw.githubusercontent.com/KorianderK/FIT3179/main/Vega-Lite/Assignment2/js/BarChartASS2.json";
+        var spec3 = "https://raw.githubusercontent.com/KorianderK/FIT3179/main/Vega-Lite/Assignment2/js/LineGraphASS2.json";
+        var spec4 = "https://raw.githubusercontent.com/KorianderK/FIT3179/main/Vega-Lite/Assignment2/js/LineGraphBestASS2.json";
+
+        vegaEmbed('#world_map', spec1, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#bar_chart', spec2, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#line_chart', spec3, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed('#line_chart2', spec4, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+</body>
+
+</html>
