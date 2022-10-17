@@ -1,0 +1,92 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 400,
+    "padding": 10,
+    "title": "Daily AQI Values for Top 10 worst Countries -August 2022",
+    "background": "#dbb9d2",
+    "view": {"fill": "#dbb9d2"},
+    "config": {"view": {"stroke": "black"}},
+    "data": {"url": "https://raw.githubusercontent.com/KorianderK/FIT3179/main/Vega-Lite/Assignment2/data/AQITop10.csv"},
+    "params": [
+      {
+        "name": "country_select",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Iraq",
+            "India",
+            "Qatar",
+            "United Arab Emirates",
+            "Kuwait",
+            "Iran",
+            "Bahrain",
+            "Zambia",
+            "Ethiopia",
+            "China"
+          ],
+          "labels": [
+            "Show All",
+            "Iraq",
+            "India",
+            "Qatar",
+            "United Arab Emirates",
+            "Kuwait",
+            "Iran",
+            "Bahrain",
+            "Zambia",
+            "Ethiopia",
+            "China"
+            ],
+            "name": "Country Select: "
+        }
+      }
+  
+    ],
+    "transform": [
+      {"filter": "country_select == null || datum.Country == country_select"}
+    ],
+    "encoding": {
+      "x": {
+        "field": "Date", 
+        "axis": {"domain": false, "grid": false, "ticks": false},
+        "type": "temporal"},
+        
+      "y": {
+        "field": "AQI_Value",
+        "type": "quantitative",
+        "axis": {"domain": false, "grid": false, "ticks": false, "title": "AQI Value"},
+        "scale": {"domain": [0, 1000]}
+      },
+  
+      "color": {
+        "field": "Country",
+        "type": "nominal",
+        "scale": {
+          "domain": [
+            "Iraq",
+            "India",
+            "Qatar",
+            "United Arab Emirates",
+            "Kuwait",
+            "Iran",
+            "Bahrain",
+            "Zambia",
+            "Ethiopia",
+            "China"
+          ]
+        }
+      },
+      
+  
+      "tooltip": [
+        {"field": "Country", "type": "nominal", "title": "Country"},
+        {"field": "Date", "type": "temporal", "title": "Date"},
+        {"field": "AQI_Value", "type": "quantitative", "title": "AQI Value"}
+      ]
+    },
+    "layer": [
+      {"mark": {"type": "line", "size": 2, "opacity": 0.6, "point": true}}
+    ]
+  }
