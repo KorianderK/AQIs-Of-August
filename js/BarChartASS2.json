@@ -1,0 +1,78 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top 10 Lowest/ Highest AQI Values By Country -August 2022",
+  "width": 800,
+  "height": 418,
+  "padding": 10,
+  "background": "#dbb9d2",
+  "view": {"fill": "#dbb9d2"},
+  "config": {"view": {"stroke": "black"}},
+  "data": {
+    "url": "https://raw.githubusercontent.com/KorianderK/FIT3179/main/Vega-Lite/Assignment2/data/AQITop10BestWorst.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "Total_AQI",
+      "type": "quantitative",
+      "title": "Total AQI",
+      "axis": {"domain": false, "grid": false, "ticks": false}
+    },
+    "y": {
+      "field": "Country",
+      "type": "nominal",
+      "axis": {"domain": false, "grid": false, "ticks": false},
+      "sort": [
+            "Iraq",
+            "India",
+            "Qatar",
+            "United Arab Emirates",
+            "Kuwait",
+            "Iran",
+            "Bahrain",
+            "Zambia",
+            "Ethiopia",
+            "China",
+            "French Guiana",
+            "Honduras",
+            "Cambodia",
+            "Grenada",
+            "Brunei",
+            "Venezuela",
+            "Bermuda",
+            "Puerto Rico",
+            "Cayman Islands",
+            "Guam"
+      ]
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "size":3},
+      "encoding": {
+        "color": {
+          "value": "#b71185"
+        },
+          "tooltip": [
+            {"field": "Country"},
+            {"field": "Total_AQI", "title": "Total AQI"}
+        ] 
+      }
+    },
+    {
+      "mark": {"type": "circle", "align": "right", "aria": false, "size": 50, "opacity":1},
+      "encoding": {
+        "color": {
+          "value": "#b71185"}
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "right", "aria": false, "size": 10, "xOffset": 28},
+      "encoding": {
+        "text":{
+          "field": "Total_AQI",
+          "type": "quantitative"
+        }     
+      }
+    }
+  ]
+}
